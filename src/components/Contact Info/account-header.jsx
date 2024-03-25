@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import SupportContact from "./contact-summary";
 
-const AccountTopBarWrapper = styled.div`
+const AccountHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 3rem;
@@ -21,17 +21,17 @@ const Title = styled.h1`
   font-weight: 400;
 `;
 
-const AccountTopBar = ({ email, name, phone }) => (
-  <AccountTopBarWrapper>
+const AccountHeader = ({ email, name, phone }) => (
+  <AccountHeaderWrapper>
     <Title>Account Overview</Title>
     <SupportContact email={email} name={name} phone={phone} />
-  </AccountTopBarWrapper>
+  </AccountHeaderWrapper>
 );
 
-AccountTopBar.propTypes = {
+AccountHeader.propTypes = {
   email: PropTypes.string,
   name: PropTypes.string,
   phone: PropTypes.string,
 };
 
-export default AccountTopBar;
+export default AccountHeader;

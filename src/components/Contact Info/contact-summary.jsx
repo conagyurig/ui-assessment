@@ -42,7 +42,7 @@ const SupportName = styled.div`
   }
 `;
 
-const TextWrapper = styled.section`
+const DetailsContainer = styled.section`
   align-items: flex-start;
   flex-direction: column;
 `;
@@ -69,7 +69,7 @@ const SupportContact = ({ email, name, phone }) => (
     <SupportTitle>Your Feefo Support Contact</SupportTitle>
     <SupportContainer>
       <SupportIconWrapper>{name ? name[0] : "-"}</SupportIconWrapper>
-      <TextWrapper>
+      <DetailsContainer>
         <SupportName>{name ? name : ""}</SupportName>
         <SupportDetails>
           {email && (
@@ -86,7 +86,7 @@ const SupportContact = ({ email, name, phone }) => (
           )}
           {phone ? phone : ""}
         </SupportDetails>
-      </TextWrapper>
+      </DetailsContainer>
     </SupportContainer>
   </div>
 );

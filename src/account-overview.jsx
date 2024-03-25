@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AccountTopBar from "./components/Contact Info/account-top-bar";
+import AccountHeader from "./components/Contact Info/account-header";
 import SalesCard from "./components/Sales Card/sales-overview";
 
 export const AccountOverview = ({ data }) => {
   return (
     <div className="AccountOverview">
-      <AccountTopBar
+      <AccountHeader
         email={data?.supportContact?.email}
         name={data?.supportContact?.name}
         phone={data?.supportContact?.phone}

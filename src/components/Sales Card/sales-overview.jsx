@@ -22,20 +22,20 @@ const MetricsContainer = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 `;
 
-const CardMetricsLeft = styled.div`
+const CardMetrics = styled.div`
   padding: 1rem;
   background: white;
-  margin-right: 0.05rem;
+  margin-right: ${({ borderRadius }) =>
+    borderRadius === "left" ? "0.05rem" : "0"};
+  margin-left: ${({ borderRadius }) =>
+    borderRadius === "right" ? "0.05rem" : "0"};
   flex-basis: calc(50% - 2rem);
-  border-radius: 0 0 0px 4px;
-`;
-
-const CardMetricsRight = styled.div`
-  padding: 1rem;
-  background: white;
-  margin-left: 0.05rem;
-  flex-basis: calc(50% - 2rem);
-  border-radius: 0 0 4px 0px;
+  border-radius: ${({ borderRadius }) =>
+    borderRadius === "left"
+      ? "0 0 0px 4px"
+      : borderRadius === "right"
+      ? "0 0 4px 0px"
+      : "0"};
 `;
 
 const SalesCard = ({
@@ -50,18 +50,18 @@ const SalesCard = ({
         <SalesUploads uploads={uploads} linesAdded={linesSaved} />
       </CardOverView>
       <MetricsContainer>
-        <CardMetricsLeft>
+        <CardMetrics borderRadius="left">
           <SalesMetrics
             metric="upload success"
             data={uploads > 0 ? (successfulUploads / uploads) * 100 : 0}
           />
-        </CardMetricsLeft>
-        <CardMetricsRight>
+        </CardMetrics>
+        <CardMetrics borderRadius="right">
           <SalesMetrics
             metric="lines saved"
             data={linesSaved > 0 ? (linesSaved / linesAttempted) * 100 : 0}
           />
-        </CardMetricsRight>
+        </CardMetrics>
       </MetricsContainer>
     </>
   );
